@@ -6,8 +6,7 @@ pipeline {
         stage("step1.checkout") {
             steps {
                 echo "checkout!!!!!!!!!!!!!!!!!!!!!"
-                git branch: 'main'
-                url: 'https://github.com/gykyoung/code.git'
+                git branch: 'main', url: 'https://github.com/gykyoung/code.git'
                 echo "checkout Success!!!!!!!!!!!!!!!!!!!!!"
             }
         }
