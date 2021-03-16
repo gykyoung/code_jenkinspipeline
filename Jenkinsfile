@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo "build!!!!!!!!!!!!!!!!!!!!!"
                 sh 'pwd'
+                sh 'mvn clean package' 
                 //sh 'mvn -f automanWebapp/pom.xml clean install -P release'
               	//archive '**/target/*.war'
             }
