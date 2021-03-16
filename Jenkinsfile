@@ -28,9 +28,10 @@ pipeline {
                 script {
                     sh 'pwd'
                     dockerImage = docker.build("yk/code:$BUILD_NUMBER")
-                    docker.withRegistry('https://registry.hub.docker.com', 'gykmegazone') #업로드할 레지스트리 정보, Jenkins Credentials ID {
-                    dockerImage.push("${env.BUILD_NUMBER}") #image에 빌드번호를 태그로 붙인 후 Push
-                    dockerImage.push("latest") #image에 latest를 태그로 붙인 후 Push
+                    docker.withRegistry('https://registry.hub.docker.com', 'gykmegazone') {
+                        dockerImage.push("${env.BUILD_NUMBER}")
+                        dockerImage.push("latest")
+                    }
                 }
                 echo "docker images Success!!!!!!!!!!!!!!!!!!!!!"
             }
