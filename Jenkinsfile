@@ -24,9 +24,11 @@ pipeline {
         stage("step3.docker images") {
             steps {
                 echo "docker images!!!!!!!!!!!!!!!!!!!!!"
-                sh 'pwd'
                 git branch: 'main', url: 'https://github.com/gykyoung/code_jenkinspipeline.git'
-                app = docker.build("yk/code:$BUILD_NUMBER")
+                script {
+                    sh 'pwd'
+                    dockerImage = docker.build("yk/code:$BUILD_NUMBER")
+                }
                 echo "docker images Success!!!!!!!!!!!!!!!!!!!!!"
             }
         }
