@@ -28,7 +28,7 @@ pipeline {
                 script {
                     sh 'pwd'
                     dockerImage = docker.build("yk/code:$BUILD_NUMBER")
-                    docker.withRegistry('https://registry.hub.docker.com', 'gykyoung') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                         dockerImage.push("${env.BUILD_NUMBER}")
                         dockerImage.push("latest")
                     }
