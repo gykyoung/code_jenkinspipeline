@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    environment{
+        dockerImage = ''
+    }
+    
     stages {
     
         stage("step1.checkout") {
@@ -25,7 +29,7 @@ pipeline {
             steps {
                 echo "docker images!!!!!!!!!!!!!!!!!!!!!"
                 git branch: 'main', url: 'https://github.com/gykyoung/code_jenkinspipeline.git'
-                dockerimage = docker.build("yk/code:$BUILD_NUMBER")
+                dockerImage = docker.build("yk/code:$BUILD_NUMBER")
                 echo "docker images Success!!!!!!!!!!!!!!!!!!!!!"
             }
         }
