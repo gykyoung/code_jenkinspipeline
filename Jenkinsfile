@@ -1,23 +1,23 @@
 pipeline {
-    agent none
-    stages{
-        stage('Parallel Test') {
-            parallel { 
-                stage('Build-test-1') {
-                    steps{ build 'Build-test-1' }
-                }
-                stage('Build-test-2') {
-                    steps{ build 'Build-test-2' }
-                }
-                stage('Build-test-3') {
-                    steps{ build 'Build-test-3' }
-                }
-            }
-        }
-        stage('Build-test-4') {
-            steps{
-                build 'Build-test-4'
-            }
-        }
+    agent any
+    
+    stages("step1.checkout")
+      steps {
+        echo "checkout!!!!!!!!!!!!!!!!!!!!!"
+    }
+    
+    stages("step2.build")
+      steps {
+        echo "build!!!!!!!!!!!!!!!!!!!!!"
+    }
+    
+    stages("step3.docker images")
+      steps {
+        echo "docker images!!!!!!!!!!!!!!!!!!!!!"
+    }
+    
+    stages("step4.deploy")
+      steps {
+        echo "deploy!!!!!!!!!!!!!!!!!!!!!"
     }
 }
