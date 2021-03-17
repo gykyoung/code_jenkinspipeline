@@ -40,8 +40,8 @@ pipeline {
         stage("step4.deploy") {
             steps {
                 echo "deploy!!!!!!!!!!!!!!!!!!!!!"
-                kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
-		sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
+                //kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
+		//sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
 		echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
 		}
             }
