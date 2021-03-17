@@ -41,9 +41,9 @@ pipeline {
             steps {
                 echo "deploy!!!!!!!!!!!!!!!!!!!!!"
                 kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
-		sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/wildfly-deployment"
+		sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
 		}
             }
         }
     }
-}
+//}
