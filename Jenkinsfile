@@ -41,11 +41,9 @@ pipeline {
             steps {
                 echo "deploy!!!!!!!!!!!!!!!!!!!!!"
 		sh 'pwd'
-		sh 'exit'
-		sh 'pwd'
                 //kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
 		//sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
-		sh "kubectl apply -f code.yaml"
+		//sh "kubectl apply -f code.yaml"
 		echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
 		}
             }
