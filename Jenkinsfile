@@ -37,32 +37,18 @@ pipeline {
             }
         }
 	    
-	node {
-  	  def remote = [:]
-  	  remote.name = 'master'
-  	  remote.host = '192.168.56.101'
-  	  remote.user = 'k8snew'
-  	  remote.password = 'k8snew'
-	  remote.allowAnyHosts = true
-  	  stage('step4.Remote SSH and deploy') {
-    	    echo "Remote SSH!!!!!!!!!!!!!!!!!!!!"
-	    sh 'pwd'
-	    sshCommand remote: remote, command: "ls -lrt"
-	    sh 'pwd'
-	    }
-	}
-    
-        //stage("step4.deploy") {
-        //    steps {
-        //        echo "deploy!!!!!!!!!!!!!!!!!!!!!"
-	//	sh 'pwd'
-	//	sh 'ssh k8snew@192.168.56.101'
+        stage("step4.deploy") {
+            steps {
+                echo "deploy!!!!!!!!!!!!!!!!!!!!!"
+		sh 'pwd'
+		sh 'sshpass -p k8snew ssh k8snew@192.168.56.101'
+		sh 'pwd'
                 //kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
 		//sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
 		//sh "kubectl apply -f code.yaml"
-	//	echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
-	//	}
-        //    }
+		echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
+		}
+            }
         }
     }
 //}
