@@ -41,7 +41,7 @@ pipeline {
             steps {
                 echo "deploy!!!!!!!!!!!!!!!!!!!!!"
 		sh 'pwd'
-		sh 'sshpass -p k8snew ssh k8snew@192.168.56.101'
+		sh 'sshpass -p k8snew ssh k8snew@192.168.56.101 ls-al'
 		sh 'pwd'
                 //kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
 		//sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
