@@ -47,7 +47,7 @@ pipeline {
   	  stage('step4.Remote SSH and deploy') {
     	    echo "Remote SSH!!!!!!!!!!!!!!!!!!!!"
 	    sh 'pwd'
-	    sshCommand remote: remote, command: "kubectl apply -f code.yaml'
+	    sshCommand remote: remote, command: "ls -lrt'
 	    sh 'pwd'
 	    }
 	}
