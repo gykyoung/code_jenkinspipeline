@@ -37,13 +37,13 @@ pipeline {
             }
         }
 	    
+        stage('step4.Remote SSH and deploy') {
 	def remote = [:]
         remote.name = 'master'
     	remote.host = '192.168.56.101'
         remote.user = 'k8snew'
         remote.password = 'k8snew'
         remote.allowAnyHosts = true
-        stage('step4.Remote SSH and deploy') {
 	    steps {
       	      echo "Remote SSH!!!!!!!!!!!!!!!!!!!!"
               sh 'pwd'
