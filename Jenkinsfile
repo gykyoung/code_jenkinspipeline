@@ -38,14 +38,14 @@ pipeline {
         }
 	    
         stage('step4.Remote SSH and deploy') {
-	    def remote = [:]
-            remote.name = 'master'
-    	    remote.host = '192.168.56.101'
-            remote.user = 'k8snew'
-            remote.password = 'k8snew'
-            remote.allowAnyHosts = true
 	    steps {
       	      echo "Remote SSH!!!!!!!!!!!!!!!!!!!!"
+	      def remote = [:]
+              remote.name = 'master'
+    	      remote.host = '192.168.56.101'
+              remote.user = 'k8snew'
+              remote.password = 'k8snew'
+              remote.allowAnyHosts = true
               sh 'pwd'
               sshCommand remote: remote, command: "ls -lrt"
               sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
