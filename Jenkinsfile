@@ -37,18 +37,18 @@ pipeline {
             }
         }
 	    
-        stage("step4.deploy") {
-            steps {
-                echo "deploy!!!!!!!!!!!!!!!!!!!!!"
-		sh 'pwd'
-		sh 'sshpass -p k8snew ssh k8snew@192.168.56.101 kubectl apply -f code.yaml'
+        //stage("step4.deploy") {
+        //    steps {
+        //        echo "deploy!!!!!!!!!!!!!!!!!!!!!"
+	//	sh 'pwd'
+	//	sh 'sshpass -p k8snew ssh k8snew@192.168.56.101 kubectl apply -f code.yaml'
 		//sh 'sshpass -p k8snew ssh k8snew@192.168.56.101 sh deploy.sh'
                 //kubernetesDeploy configs: "code.yaml", kubeconfigId: 'kubernetes-jenkins'
 		//sh "kubectl --kubeconfig=/root/.jenkins/.kube/config rollout restart deployment/code-sample-deployment"
 		//sh "kubectl apply -f code.yaml"
-		echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
-		}
-            }
+	//	echo "deploy Success!!!!!!!!!!!!!!!!!!!!!"
+	//	}
+        //    }
         }
     }
 //}
